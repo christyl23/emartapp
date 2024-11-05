@@ -8,8 +8,7 @@ services:
       - "4200:4200"
     container_name: client
     depends_on:
-      - api
-      - webapi
+      [api, webapi]
 
   api:
     build:
@@ -20,7 +19,8 @@ services:
     container_name: api
     depends_on:
       - nginx
-      - emongo
+    depends_on: 
+      [emongo]
 
   webapi:
     restart: always
@@ -30,7 +30,7 @@ services:
       - "9000:9000"
     container_name: webapi
     depends_on:
-      - emartdb
+      [emartdb]
 
   nginx:
     restart: always
