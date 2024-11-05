@@ -19,8 +19,7 @@ services:
     container_name: api
     depends_on:
       - nginx
-    depends_on: 
-      [emongo]
+      - emongo
 
   webapi:
     restart: always
